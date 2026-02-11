@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 142 38% 97%;
+    --foreground: 165 28% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 165 28% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 28% 12%;
+
+    --primary: 151 56% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 167 22% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 145 28% 92%;
+    --muted-foreground: 164 12% 40%;
+
+    --accent: 153 54% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 145 18% 86%;
+    --input: 145 18% 86%;
+    --ring: 151 56% 38%;
+
+    --radius: 1rem;
+
+    --school-green: 152 55% 42%;
+    --school-blue: 210 70% 50%;
+    --school-yellow: 40 95% 55%;
+    --school-orange: 25 90% 55%;
+    --school-pink: 340 75% 60%;
+    --school-purple: 270 60% 60%;
+    --school-sky: 195 80% 70%;
+    --school-lime: 90 60% 55%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 152 60% 36%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 145 20% 93%;
+    --sidebar-accent-foreground: 160 30% 10%;
+    --sidebar-border: 145 18% 88%;
+    --sidebar-ring: 152 60% 36%;
+  }
+
+  .dark {
+    --background: 160 25% 6%;
+    --foreground: 140 20% 92%;
+    --card: 160 22% 10%;
+    --card-foreground: 140 20% 92%;
+    --popover: 160 22% 10%;
+    --popover-foreground: 140 20% 92%;
+    --primary: 152 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 145 15% 80%;
+    --secondary-foreground: 160 25% 6%;
+    --muted: 160 15% 15%;
+    --muted-foreground: 150 12% 55%;
+    --accent: 152 55% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 15% 18%;
+    --input: 160 15% 18%;
+    --ring: 152 55% 45%;
+    --sidebar-background: 160 22% 8%;
+    --sidebar-foreground: 140 15% 85%;
+    --sidebar-primary: 152 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 15% 15%;
+    --sidebar-accent-foreground: 140 15% 85%;
+    --sidebar-border: 160 15% 18%;
+    --sidebar-ring: 152 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground font-nunito antialiased;
+    background-image:
+      radial-gradient(circle at 12% 16%, hsl(var(--primary) / 0.08), transparent 32%),
+      radial-gradient(circle at 88% 12%, hsl(var(--school-blue) / 0.08), transparent 28%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Baloo 2", cursive;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply container mx-auto px-4 py-8 md:py-10;
+  }
+
+  .glass-panel {
+    @apply border border-border/50 bg-card/85 backdrop-blur-sm shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .font-baloo {
+    font-family: "Baloo 2", cursive;
+  }
+
+  .font-nunito {
+    font-family: "Nunito", sans-serif;
+  }
+
+  .soft-grid {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
