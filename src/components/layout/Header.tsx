@@ -1,4 +1,4 @@
-﻿import { useMemo, useState, type ComponentType } from "react";
+import { useEffect, useMemo, useState, type ComponentType } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -77,6 +77,22 @@ const Header = () => {
   const isGroupActive = (group: NavLinkItem[]) => group.some((link) => isActive(link.to));
 
   const flatLinks = useMemo(() => navGroups.flatMap((group) => group.links), []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50">

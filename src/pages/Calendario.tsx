@@ -1,24 +1,20 @@
 import { useState } from "react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, CalendarDays, PartyPopper, Trees } from "lucide-react";
+import { ChevronLeft, ChevronRight, CalendarDays, Trees } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-const daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+const daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+const months = ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-const events: Record<string, { title: string; icon: "calendar" | "party" | "trees" }[]> = {
-  "2026-02-15": [{ title: "Reunião de pais", icon: "calendar" }],
-  "2026-02-20": [{ title: "Festa de Carnaval", icon: "party" }],
+const events: Record<string, { title: string; icon: "calendar" | "trees" }[]> = {
+  "2026-02-15": [{ title: "Reuniao de pais", icon: "calendar" }],
   "2026-02-28": [{ title: "Passeio ao parque", icon: "trees" }],
-  "2026-03-08": [{ title: "Dia da Mulher", icon: "calendar" }],
-  "2026-03-21": [{ title: "Dia da Árvore", icon: "trees" }],
 };
 
 const iconByType = {
   calendar: CalendarDays,
-  party: PartyPopper,
   trees: Trees,
 };
 
@@ -39,8 +35,8 @@ const Calendario = () => {
 
   return (
     <div className="page-shell">
-      <SectionTitle icon={CalendarDays} subtitle="Fique por dentro das atividades do mês">
-        Calendário de Atividades
+      <SectionTitle icon={CalendarDays} subtitle="Fique por dentro das atividades do mes">
+        Calendario de Atividades
       </SectionTitle>
 
       <div className="mx-auto max-w-3xl">
